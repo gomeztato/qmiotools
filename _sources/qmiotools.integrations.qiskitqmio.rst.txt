@@ -1,0 +1,7 @@
+qmiotools.integrations.qiskitqmio module
+========================================
+
+.. automodule:: qmiotools.integrations.qiskitqmio
+   :members:
+   :undoc-members:
+   :show-inheritance:

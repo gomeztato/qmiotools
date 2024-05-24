@@ -1,0 +1,7 @@
+qmiotools.version module
+========================
+
+.. automodule:: qmiotools.version
+   :members:
+   :undoc-members:
+   :show-inheritance:

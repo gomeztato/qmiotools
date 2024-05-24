@@ -1,0 +1,28 @@
+qmiotools package
+=================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   qmiotools.integrations
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   qmiotools.data
+   qmiotools.exceptions
+   qmiotools.version
+
+Module contents
+---------------
+
+.. automodule:: qmiotools
+   :members:
+   :undoc-members:
+   :show-inheritance:
