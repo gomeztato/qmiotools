@@ -70,7 +70,7 @@ be successfully run on this backend.
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qmiotools.integrations.tkbackend.Qmio.rebase_pass">
-<span class="sig-name descname"><span class="pre">rebase_pass</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{pytket.circuit.OpType.Barrier,</span> <span class="pre">pytket.circuit.OpType.SX,</span> <span class="pre">pytket.circuit.OpType.X,</span> <span class="pre">pytket.circuit.OpType.Rz,</span> <span class="pre">pytket.circuit.OpType.ECR,</span> <span class="pre">pytket.circuit.OpType.Measure}</span></em><a class="headerlink" href="#qmiotools.integrations.tkbackend.Qmio.rebase_pass" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">rebase_pass</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{pytket.circuit.OpType.Barrier,</span> <span class="pre">pytket.circuit.OpType.X,</span> <span class="pre">pytket.circuit.OpType.ECR,</span> <span class="pre">pytket.circuit.OpType.Measure,</span> <span class="pre">pytket.circuit.OpType.SX,</span> <span class="pre">pytket.circuit.OpType.Rz}</span></em><a class="headerlink" href="#qmiotools.integrations.tkbackend.Qmio.rebase_pass" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -80,12 +80,14 @@ be successfully run on this backend.
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>optimisation_level</strong> – <p>The level of optimisation to perform during compilation.
-* Level 0 decompose boxes, solves the device constraints without optimising and convert to the supported gates.  * Level 1 additionally performs some light optimisations.  * Level 2 adds more intensive optimisations that can increase compilation time for large circuits.</p>
-<blockquote>
-<div><p>Any optimisation level includes the options of the previous level.
+<li><p><strong>optimisation_level</strong> – <p>The level of optimisation to perform during compilation.</p>
+<ul>
+<li><p>Level 0 decompose boxes, solves the device constraints without optimising and convert to the supported gates.</p></li>
+<li><p>Level 1 additionally performs some light optimisations.</p></li>
+<li><p>Level 2 adds more intensive optimisations that can increase compilation time for large circuits.</p></li>
+</ul>
+<p>Any optimisation level includes the options of the previous level.
 Defaults to 1.</p>
-</div></blockquote>
 </p></li>
 <li><p><strong>options</strong> – </p></li>
 <li><p><strong>placement</strong> – Selected placement for the execution.</p></li>
