@@ -70,21 +70,29 @@ be successfully run on this backend.
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="qmiotools.integrations.tkbackend.Qmio.rebase_pass">
-<span class="sig-name descname"><span class="pre">rebase_pass</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{pytket.circuit.OpType.Barrier,</span> <span class="pre">pytket.circuit.OpType.Rz,</span> <span class="pre">pytket.circuit.OpType.Measure,</span> <span class="pre">pytket.circuit.OpType.X,</span> <span class="pre">pytket.circuit.OpType.ECR,</span> <span class="pre">pytket.circuit.OpType.SX}</span></em><a class="headerlink" href="#qmiotools.integrations.tkbackend.Qmio.rebase_pass" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">rebase_pass</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{pytket.circuit.OpType.ECR,</span> <span class="pre">pytket.circuit.OpType.Barrier,</span> <span class="pre">pytket.circuit.OpType.SX,</span> <span class="pre">pytket.circuit.OpType.Measure,</span> <span class="pre">pytket.circuit.OpType.X,</span> <span class="pre">pytket.circuit.OpType.Rz}</span></em><a class="headerlink" href="#qmiotools.integrations.tkbackend.Qmio.rebase_pass" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qmiotools.integrations.tkbackend.Qmio.default_compilation_pass">
 <span class="sig-name descname"><span class="pre">default_compilation_pass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">optimisation_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">placement</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">pytket.placement.Placement</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">pytket.unit_id.Qubit</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pytket.unit_id.Node</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pytket.passes.BasePass</span></span></span><a class="headerlink" href="#qmiotools.integrations.tkbackend.Qmio.default_compilation_pass" title="Permalink to this definition">¶</a></dt>
 <dd><dl>
-<dt>The basic compilation pass that produce a circuit with enough optimisation to run on Qmio.</dt><dd><dl>
-<dt>args:</dt><dd><p>optimisation_level: The level of optimisation to perform during compilation. Level 0 decompose boxes, solves the device constraints without optimising and convert to the supported gates.  * Level 1 additionally performs some light optimisations.  * Level 2 adds more intensive optimisations that can increase compilation time for large circuits.</p>
+<dt>The basic compilation pass that produce a circuit with enough optimisation to run on Qmio.</dt><dd><dl class="field-list">
+<dt class="field-odd">param optimisation_level</dt>
+<dd class="field-odd"><p>The level of optimisation to perform during compilation. Level 0 decompose boxes, solves the device constraints without optimising and convert to the supported gates.  * Level 1 additionally performs some light optimisations.  * Level 2 adds more intensive optimisations that can increase compilation time for large circuits.</p>
 <p>Any optimisation level includes the options of the previous level.
 Defaults to 1.</p>
-<p>options:</p>
-<p>placement: Selected placement for the execution.</p>
 </dd>
-<dt>Returns:</dt><dd><p>BasePass: Compilation pass guaranteeing required predicates.</p>
+<dt class="field-even">param options</dt>
+<dd class="field-even"><p></p></dd>
+<dt class="field-odd">param placement</dt>
+<dd class="field-odd"><p>Selected placement for the execution.</p>
+</dd>
+<dt class="field-even">return</dt>
+<dd class="field-even"><p>Compilation pass guaranteeing required predicates.</p>
+</dd>
+<dt class="field-odd">rtype</dt>
+<dd class="field-odd"><p>BasePass</p>
 </dd>
 </dl>
 </dd>
