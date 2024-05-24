@@ -5,6 +5,10 @@
 
 Qmiotools's documentation
 =========================
+.. autosummary:: qmiotools
+   :members:
+   :undoc-members:
+
 .. automodule:: qmiotools
    :members:
    :undoc-members:
@@ -14,11 +18,8 @@ Qmiotools's documentation
    :maxdepth: 4
    :caption: Contents:
 
+   modules
+
+.. hidden::
+   :ref:`modindex`
   
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
