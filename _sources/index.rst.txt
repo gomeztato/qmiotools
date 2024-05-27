@@ -6,7 +6,7 @@
 Qmiotools's documentation
 =========================
 .. autosummary:: qmiotools
-   :members:
+   :members: ''
    :undoc-members:
 
 .. automodule:: qmiotools

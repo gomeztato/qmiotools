@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>qmiotools.integrations.qiskitqmio module &#8212; Qmiotools 0.1.0 documentation</title>
+    <title>qmiotools.integrations.qiskitqmio module &#8212; Qmiotools 0.1.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/classic.css" />
     
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="qmiotools.integrations.html" title="qmiotools.integrations package"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Qmiotools 0.1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Qmiotools 0.1.1 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="modules.html" >qmiotools</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="qmiotools.html" >qmiotools package</a> &#187;</li>
           <li class="nav-item nav-item-3"><a href="qmiotools.integrations.html" accesskey="U">qmiotools.integrations package</a> &#187;</li>
@@ -190,10 +190,10 @@ object.</p></li>
 <dd><p>Method to convert a Qiskit circuit with several ClassicalRegisters in a single ClassicalRegister</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>circ</strong> – A QuantumCircuit</p></li>
-<li><p><strong>returns</strong> – A new QuantumCircuit with a single ClassicalRegister</p></li>
-</ul>
+<dd class="field-odd"><p><strong>circ</strong> – A QuantumCircuit</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A new QuantumCircuit with a single ClassicalRegister</p>
 </dd>
 </dl>
 </dd></dl>
@@ -201,7 +201,25 @@ object.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="qmiotools.integrations.qiskitqmio.FakeQmio">
 <span class="sig-prename descclassname"><span class="pre">qmiotools.integrations.qiskitqmio.</span></span><span class="sig-name descname"><span class="pre">FakeQmio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calibration_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thermal_relaxation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gate_error</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">readout_error</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">qiskit_aer.AerSimulator</span></span></span><a class="headerlink" href="#qmiotools.integrations.qiskitqmio.FakeQmio" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fake backend for Qmio that uses the last calibrations and AerSimulator.</p>
+<dd><p>Create a Fake backend for Qmio that uses the last calibrations and AerSimulator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>calibration_file</strong> – A path to a valid calibration file. If the path is <strong>None</strong> (default), the last calibration is loaded.</p></li>
+<li><p><strong>thermal_relaxation</strong> – If True, the noise model will include the thermal relaxation using the data from the calibration. Default: <em>True</em></p></li>
+<li><p><strong>temperature</strong> – the temperature in mK. If it is different of 0 (defaul)</p></li>
+<li><p><strong>gate_error</strong> – Flag to include (True) or not (False. Default option) the gate errors in the model.</p></li>
+<li><p><strong>readout_error</strong> – Flag to include (True) or not (False. Default) the readout error from the calibrations file.</p></li>
+<li><p><strong>**kwargs</strong> – other parameters to pass directly to AerSimulator</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A valid backend including the defined noise model.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>..exceptions.QmioException</strong> – </p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -255,7 +273,7 @@ object.</p></li>
         <li class="right" >
           <a href="qmiotools.integrations.html" title="qmiotools.integrations package"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Qmiotools 0.1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Qmiotools 0.1.1 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="modules.html" >qmiotools</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="qmiotools.html" >qmiotools package</a> &#187;</li>
           <li class="nav-item nav-item-3"><a href="qmiotools.integrations.html" >qmiotools.integrations package</a> &#187;</li>
