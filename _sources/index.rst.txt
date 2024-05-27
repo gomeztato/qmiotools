@@ -6,8 +6,8 @@
 Qmiotools's documentation
 =========================
 .. autosummary:: qmiotools
-   :members: ''
-   :undoc-members:
+
+#.. automodapi:: qmiotools
 
 .. automodule:: qmiotools
    :members:
