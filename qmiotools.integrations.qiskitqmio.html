@@ -205,19 +205,22 @@ object.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>calibration_file</strong> – A path to a valid calibration file. If the path is <strong>None</strong> (default), the last calibration is loaded.</p></li>
-<li><p><strong>thermal_relaxation</strong> – If True, the noise model will include the thermal relaxation using the data from the calibration. Default: <em>True</em></p></li>
-<li><p><strong>temperature</strong> – the temperature in mK. If it is different of 0 (defaul)</p></li>
-<li><p><strong>gate_error</strong> – Flag to include (True) or not (False. Default option) the gate errors in the model.</p></li>
-<li><p><strong>readout_error</strong> – Flag to include (True) or not (False. Default) the readout error from the calibrations file.</p></li>
+<li><p><strong>calibration_file</strong> (<em>str</em>) – A path to a valid calibration file. If the path is <strong>None</strong> (default), the last calibration is loaded.</p></li>
+<li><p><strong>thermal_relaxation</strong> (<em>bool</em>) – If True, the noise model will include the thermal relaxation using the data from the calibration. Default: <em>True</em></p></li>
+<li><p><strong>temperature</strong> (<em>float</em>) – the temperature in mK. If it is different of 0 (defaul)</p></li>
+<li><p><strong>gate_error</strong> (<em>bool</em>) – Flag to include (True) or not (False. Default option) the gate errors in the model.</p></li>
+<li><p><strong>readout_error</strong> (<em>bool</em>) – Flag to include (True) or not (False. Default) the readout error from the calibrations file.</p></li>
 <li><p><strong>**kwargs</strong> – other parameters to pass directly to AerSimulator</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A valid backend including the defined noise model.</p>
 </dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><strong>..exceptions.QmioException</strong> – </p>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(AerSimulator)</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="qmiotools.exceptions.html#qmiotools.exceptions.QmioException" title="qmiotools.exceptions.QmioException"><strong>QmioException</strong></a> – if the configuration file could not be found.</p>
 </dd>
 </dl>
 </dd></dl>
