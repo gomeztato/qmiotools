@@ -106,6 +106,16 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qmiotools.integrations.qiskitqmio.</span></span><span class="sig-name descname"><span class="pre">QmioBackend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qmiotools.integrations.qiskitqmio.QmioBackend" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">qiskit.providers.BackendV2</span></code></p>
 <p>Backend to execute Jobs in Qmio QPU.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>QMIO_CALIBRATIONS</strong> (<em>calibration_file</em><em> (</em><em>Str with a full path to a calibration file. Default None and loads the last calibration file from the directory indicated by environment</em>) – </p></li>
+<li><p><strong>logging_level</strong> (<em>int indicating the logging level. Better if use the logginf package levels</em>) – </p></li>
+<li><p><strong>logging_filename</strong> (<em>Str with the path to store the logging messages</em>) – </p></li>
+<li><p><strong>class</strong> (<em>kwargs Other parameters to pass to Qisbit BackendV2</em>) – </p></li>
+</ul>
+</dd>
+</dl>
 <p>It uses <code class="xref py py-class docutils literal notranslate"><span class="pre">qmio.QmioRuntimeService</span></code> to submit circuits to the QPU. By default, the calibrations are read from the last JSON file in the directory set by environ variable QMIO_CALIBRATIONS, but accepts a direct filename to use instead of.</p>
 <p>The execution using the method run is synchronous.</p>
 <p>To create a new backend use:</p>
@@ -116,7 +126,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">backend</span><span class="o">=</span><span class="n">QmioBackend</span><span class="p">(</span><span class="o">&lt;</span><span class="n">file</span> <span class="n">name</span><span class="o">&gt;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>wherw &lt;file name&gt; is the path to the calibrations file that must be used. If the file is not found, it raises a exception.</p>
+<p>where &lt;file name&gt; is the path to the calibrations file that must be used. If the file is not found, it raises a exception.</p>
 <p><strong>Example</strong>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qiskit.circuit</span> <span class="kn">import</span> <span class="n">QuantumCircuit</span>
 <span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">transpile</span>
@@ -133,7 +143,7 @@
 <span class="c1">#Transpile the circuit using the optimization_level equal to 2</span>
 <span class="n">c</span><span class="o">=</span><span class="n">transpile</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">backend</span><span class="p">,</span><span class="n">optimization_level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="c1">#Execute the circuit with 100 shots. Must be executed from a node with a QPU.</span>
+<span class="c1">#Execute the circuit with 1000 shots. Must be executed from a node with a QPU.</span>
 <span class="n">job</span><span class="o">=</span><span class="n">backend</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">shots</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 
 <span class="c1">#Return the results</span>
