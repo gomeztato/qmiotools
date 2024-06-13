@@ -109,10 +109,10 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>QMIO_CALIBRATIONS</strong> (<em>calibration_file</em><em> (</em><em>Str with a full path to a calibration file. Default None and loads the last calibration file from the directory indicated by environment</em>) – </p></li>
-<li><p><strong>logging_level</strong> (<em>int indicating the logging level. Better if use the logginf package levels</em>) – </p></li>
-<li><p><strong>logging_filename</strong> (<em>Str with the path to store the logging messages</em>) – </p></li>
-<li><p><strong>class</strong> (<em>kwargs Other parameters to pass to Qisbit BackendV2</em>) – </p></li>
+<li><p><strong>calibration_file</strong> (<em>Str</em><em> or </em><em>None</em>) – full path to a calibration file. Default <em>None</em> and loads the last calibration file from the directory indicated by environment QMIO_CALIBRATIONS</p></li>
+<li><p><strong>logging_level</strong> (<em>int</em>) – flag to indicate the logging level. Better if use the logging package levels. Default logging.NOTSET</p></li>
+<li><p><strong>logging_filename</strong> (<em>Str</em>) – Path to store the logging messages. Default <em>Nonei</em>, i.e., output in stdout</p></li>
+<li><p><strong>kwargs</strong> – Other parameters to pass to Qisbit BackendV2 class</p></li>
 </ul>
 </dd>
 </dl>
