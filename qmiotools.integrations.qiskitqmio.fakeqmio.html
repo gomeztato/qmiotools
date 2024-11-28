@@ -49,37 +49,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-qmiotools.integrations.qiskitqmio.fakeqmio">
-<span id="qmiotools-integrations-qiskitqmio-fakeqmio-module"></span><h1>qmiotools.integrations.qiskitqmio.fakeqmio module<a class="headerlink" href="#module-qmiotools.integrations.qiskitqmio.fakeqmio" title="Permalink to this headline">¶</a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="qmiotools.integrations.qiskitqmio.fakeqmio.FakeQmio">
-<span class="sig-prename descclassname"><span class="pre">qmiotools.integrations.qiskitqmio.fakeqmio.</span></span><span class="sig-name descname"><span class="pre">FakeQmio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calibration_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thermal_relaxation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gate_error</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">readout_error</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logging_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logging_filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">qiskit_aer.AerSimulator</span></span></span><a class="headerlink" href="#qmiotools.integrations.qiskitqmio.fakeqmio.FakeQmio" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a Fake backend for Qmio that uses the last calibrations and AerSimulator.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>calibration_file</strong> (<em>str</em>) – A path to a valid calibration file. If the path is <strong>None</strong> (default), the last calibration is loaded.</p></li>
-<li><p><strong>thermal_relaxation</strong> (<em>bool</em>) – If True, the noise model will include the thermal relaxation using the data from the calibration. Default: <em>True</em></p></li>
-<li><p><strong>temperature</strong> (<em>float</em>) – the temperature in mK. If it is different of 0 (default). This is equivalent temperature used to calculate the probability of being <a href="#id1"><span class="problematic" id="id2">|</span></a>1&gt; due to thermal effects. See publication arxiv:1412.2772. This temperature is passed to AerSimulator, that initially set it equally for all qubits, despite that could be different.</p></li>
-<li><p><strong>gate_error</strong> (<em>bool</em>) – Flag to include (True) or not (False. Default option) the gate errors in the model.</p></li>
-<li><p><strong>readout_error</strong> (<em>bool</em>) – Flag to include (True) or not (False. Default) the readout error from the calibrations file.</p></li>
-<li><p><strong>logging_level</strong> (<em>int</em>) – flag to indicate the logging level. Better if use the logging package levels. Default logging.NOTSET</p></li>
-<li><p><strong>logging_filename</strong> (<em>Str</em>) – Path to store the logging messages. Default <em>None</em>, i.e., output in stdout</p></li>
-<li><p><strong>**kwargs</strong> – other parameters to pass directly to AerSimulator</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A valid backend including the defined noise model.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>(AerSimulator)</p>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="qmiotools.exceptions.html#qmiotools.exceptions.QmioException" title="qmiotools.exceptions.QmioException"><strong>QmioException</strong></a> – if the configuration file could not be found.</p>
-</dd>
-</dl>
-</dd></dl>
-
+  <div class="section" id="qmiotools-integrations-qiskitqmio-fakeqmio-module">
+<h1>qmiotools.integrations.qiskitqmio.fakeqmio module<a class="headerlink" href="#qmiotools-integrations-qiskitqmio-fakeqmio-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
