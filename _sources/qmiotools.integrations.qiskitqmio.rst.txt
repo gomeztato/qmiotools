@@ -9,8 +9,10 @@ Submodules
 
    qmiotools.integrations.qiskitqmio.fakeqmio
    qmiotools.integrations.qiskitqmio.flattencircuit
+   qmiotools.integrations.qiskitqmio.opexporter
    qmiotools.integrations.qiskitqmio.qmiobackend
    qmiotools.integrations.qiskitqmio.qmiojob
+   qmiotools.integrations.qiskitqmio.qpebuilder
 
 Module contents
 ---------------

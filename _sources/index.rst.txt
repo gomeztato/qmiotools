@@ -7,15 +7,13 @@ Qmiotools's documentation
 =========================
 .. autosummary:: qmiotools
 
-#.. automodapi:: qmiotools
-
 .. automodule:: qmiotools
    :members:
    :undoc-members:
    :private-members:
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 6
    :caption: Contents:
 
    modules
