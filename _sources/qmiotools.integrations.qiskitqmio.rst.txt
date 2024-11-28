@@ -1,5 +1,19 @@
-qmiotools.integrations.qiskitqmio module
-========================================
+qmiotools.integrations.qiskitqmio package
+=========================================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   qmiotools.integrations.qiskitqmio.fakeqmio
+   qmiotools.integrations.qiskitqmio.flattencircuit
+   qmiotools.integrations.qiskitqmio.qmiobackend
+   qmiotools.integrations.qiskitqmio.qmiojob
+
+Module contents
+---------------
 
 .. automodule:: qmiotools.integrations.qiskitqmio
    :members:

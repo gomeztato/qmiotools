@@ -1,13 +1,20 @@
 qmiotools.integrations package
 ==============================
 
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   qmiotools.integrations.qiskitqmio
+
 Submodules
 ----------
 
 .. toctree::
    :maxdepth: 4
 
-   qmiotools.integrations.qiskitqmio
    qmiotools.integrations.tkbackend
    qmiotools.integrations.utils
 
