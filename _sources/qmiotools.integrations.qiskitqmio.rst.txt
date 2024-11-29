@@ -12,7 +12,7 @@ Submodules
    qmiotools.integrations.qiskitqmio.opexporter
    qmiotools.integrations.qiskitqmio.qmiobackend
    qmiotools.integrations.qiskitqmio.qmiojob
-   qmiotools.integrations.qiskitqmio.qpebuilder
+   qmiotools.integrations.qiskitqmio.qpbuilder
 
 Module contents
 ---------------
