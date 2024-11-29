@@ -5,19 +5,18 @@
 
 Qmiotools's documentation
 =========================
-.. autosummary:: qmiotools
-
-.. automodule:: qmiotools
-   :members:
-   :undoc-members:
-   :private-members:
 
 .. toctree::
-   :maxdepth: 6
+   :maxdepth: 4
    :caption: Contents:
 
-   modules
+.. autosummary:: qmiotools
 
-.. hidden::
-   :ref:`modindex`
-  
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
+

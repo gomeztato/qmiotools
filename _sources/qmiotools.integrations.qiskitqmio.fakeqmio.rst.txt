@@ -2,6 +2,6 @@ qmiotools.integrations.qiskitqmio.fakeqmio module
 =================================================
 
 .. automodule:: qmiotools.integrations.qiskitqmio.fakeqmio
-   :members: FakeQmio
+   :members:
    :undoc-members:
    :show-inheritance:
