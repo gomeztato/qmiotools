@@ -1,5 +1,6 @@
 
-<!DOCTYPE html>
+
+<!doctype html>
 
 <html>
   <head>
@@ -7,16 +8,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>qmiotools.integrations.qiskitqmio.qpbuilder module &#8212; Qmiotools 0.1.5 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    
+    <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="qmiotools.integrations.tkbackend module" href="qmiotools.integrations.tkbackend.html" />
+    <link rel="prev" title="qmiotools.integrations.qiskitqmio.qmiojob module" href="qmiotools.integrations.qiskitqmio.qmiojob.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -27,7 +34,17 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="qmiotools.integrations.tkbackend.html" title="qmiotools.integrations.tkbackend module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="qmiotools.integrations.qiskitqmio.qmiojob.html" title="qmiotools.integrations.qiskitqmio.qmiojob module"
+             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Qmiotools 0.1.5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >qmiotools</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="qmiotools.html" >qmiotools package</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="qmiotools.integrations.html" >qmiotools.integrations package</a> &#187;</li>
+          <li class="nav-item nav-item-4"><a href="qmiotools.integrations.qiskitqmio.html" accesskey="U">qmiotools.integrations.qiskitqmio package</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">qmiotools.integrations.qiskitqmio.qpbuilder module</a></li> 
       </ul>
     </div>  
@@ -41,8 +58,8 @@
 <span id="qmiotools-integrations-qiskitqmio-qpbuilder-module"></span><h1>qmiotools.integrations.qiskitqmio.qpbuilder module<a class="headerlink" href="#module-qmiotools.integrations.qiskitqmio.qpbuilder" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="qmiotools.integrations.qiskitqmio.qpbuilder.QPBuilder">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qmiotools.integrations.qiskitqmio.qpbuilder.</span></span><span class="sig-name descname"><span class="pre">QPBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logging_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logging_filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qmiotools.integrations.qiskitqmio.qpbuilder.QPBuilder" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qmiotools.integrations.qiskitqmio.qpbuilder.</span></span><span class="sig-name descname"><span class="pre">QPBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logging_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logging_filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.13)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qmiotools.integrations.qiskitqmio.qpbuilder.QPBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="qmiotools.integrations.qiskitqmio.qpbuilder.QPBuilder.build_header">
 <span class="sig-name descname"><span class="pre">build_header</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qmiotools.integrations.qiskitqmio.qpbuilder.QPBuilder.build_header" title="Permalink to this definition">¶</a></dt>
@@ -67,6 +84,16 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/logo_Qmio_v5-azul-300x80.png" alt="Logo"/>
             </a></p>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="qmiotools.integrations.qiskitqmio.qmiojob.html"
+                          title="previous chapter">qmiotools.integrations.qiskitqmio.qmiojob module</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="qmiotools.integrations.tkbackend.html"
+                          title="next chapter">qmiotools.integrations.tkbackend module</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -90,12 +117,23 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="qmiotools.integrations.tkbackend.html" title="qmiotools.integrations.tkbackend module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="qmiotools.integrations.qiskitqmio.qmiojob.html" title="qmiotools.integrations.qiskitqmio.qmiojob module"
+             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Qmiotools 0.1.5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >qmiotools</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="qmiotools.html" >qmiotools package</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="qmiotools.integrations.html" >qmiotools.integrations package</a> &#187;</li>
+          <li class="nav-item nav-item-4"><a href="qmiotools.integrations.qiskitqmio.html" >qmiotools.integrations.qiskitqmio package</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">qmiotools.integrations.qiskitqmio.qpbuilder module</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2024, Andrés Gómez (CESGA).
+      Last updated on 2024/11/29.
     </div>
   </body>
 </html>

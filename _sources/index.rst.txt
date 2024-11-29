@@ -10,7 +10,9 @@ Qmiotools's documentation
    :maxdepth: 4
    :caption: Contents:
 
-.. autosummary:: qmiotools
+   modules
+
+.. autosummary:: 
 
 Indices and tables
 ==================
