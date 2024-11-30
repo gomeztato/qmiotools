@@ -1,0 +1,43 @@
+﻿Calibrations
+============
+
+.. currentmodule:: qmiotools.integrations.utils
+
+.. autoclass:: Calibrations
+   :no-members:
+   :show-inheritance:
+
+
+  
+
+  
+  
+   .. rubric:: Methods
+    
+   .. automethod:: clear
+   .. automethod:: copy
+   .. automethod:: from_json_file
+   .. automethod:: from_json_str
+   .. automethod:: from_last_calibrations
+   .. automethod:: fromkeys
+   .. automethod:: get
+   .. automethod:: get_1Q_durations
+   .. automethod:: get_1Q_errors
+   .. automethod:: get_2Q_durations
+   .. automethod:: get_2Q_errors
+   .. automethod:: get_filename
+   .. automethod:: get_gateset
+   .. automethod:: get_mapping
+   .. automethod:: get_measuring_durations
+   .. automethod:: get_measuring_errors
+   .. automethod:: get_qubits
+   .. automethod:: import_last_calibration
+   .. automethod:: items
+   .. automethod:: keys
+   .. automethod:: move_to_end
+   .. automethod:: pop
+   .. automethod:: popitem
+   .. automethod:: setdefault
+   .. automethod:: update
+   .. automethod:: values
+  
