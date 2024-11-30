@@ -1,7 +1,0 @@
-qmiotools.integrations.tkbackend module
-=======================================
-
-.. automodule:: qmiotools.integrations.tkbackend
-   :members:
-   :undoc-members:
-   :show-inheritance:

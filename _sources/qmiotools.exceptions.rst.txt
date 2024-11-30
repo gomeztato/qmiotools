@@ -1,7 +1,0 @@
-qmiotools.exceptions module
-===========================
-
-.. automodule:: qmiotools.exceptions
-   :members:
-   :undoc-members:
-   :show-inheritance:

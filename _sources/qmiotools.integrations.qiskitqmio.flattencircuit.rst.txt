@@ -1,7 +1,0 @@
-qmiotools.integrations.qiskitqmio.flattencircuit module
-=======================================================
-
-.. automodule:: qmiotools.integrations.qiskitqmio.flattencircuit
-   :members:
-   :undoc-members:
-   :show-inheritance:

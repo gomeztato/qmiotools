@@ -1,0 +1,37 @@
+﻿qmiotools.integrations.tkbackend.Qmio
+=====================================
+
+.. currentmodule:: qmiotools.integrations.tkbackend
+
+.. autoclass:: Qmio
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Qmio.__init__
+      ~Qmio.circuit_status
+      ~Qmio.default_compilation_pass
+      ~Qmio.draw_graph
+      ~Qmio.process_circuit
+      ~Qmio.process_circuits
+      ~Qmio.run_circuit
+      ~Qmio.run_circuits
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Qmio.backend_info
+      ~Qmio.rebase_pass
+      ~Qmio.required_predicates
+   
+   

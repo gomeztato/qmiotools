@@ -1,7 +1,0 @@
-qmiotools.integrations.qiskitqmio.qmiobackend module
-====================================================
-
-.. automodule:: qmiotools.integrations.qiskitqmio.qmiobackend
-   :members:
-   :undoc-members:
-   :show-inheritance:

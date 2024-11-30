@@ -1,0 +1,26 @@
+﻿qmiotools.integrations.qiskitqmio.QmioJob
+=========================================
+
+.. currentmodule:: qmiotools.integrations.qiskitqmio
+
+.. autoclass:: QmioJob
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~QmioJob.__init__
+      ~QmioJob.cancel
+      ~QmioJob.result
+      ~QmioJob.status
+      ~QmioJob.submit
+   
+   
+
+   
+   
+   

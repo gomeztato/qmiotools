@@ -1,0 +1,32 @@
+﻿qmiotools.integrations.qiskitqmio.QmioBackend
+=============================================
+
+.. currentmodule:: qmiotools.integrations.qiskitqmio
+
+.. autoclass:: QmioBackend
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~QmioBackend.__init__
+      ~QmioBackend.connect
+      ~QmioBackend.disconnect
+      ~QmioBackend.run
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~QmioBackend.max_circuits
+      ~QmioBackend.target
+   
+   

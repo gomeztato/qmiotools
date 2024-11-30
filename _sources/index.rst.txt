@@ -6,13 +6,18 @@
 Qmiotools's documentation
 =========================
 
+======================================================
+Interfaces with programming languages
+======================================================
 .. toctree::
    :maxdepth: 4
    :caption: Contents:
 
-   modules
 
-.. autosummary:: 
+   integrations.qiskitqmio
+   integrations.tkbackend
+
+#.. autosummary:: 
 
 Indices and tables
 ==================

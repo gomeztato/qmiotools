@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>qmiotools &#8212; Qmiotools 0.1.5 documentation</title>
+    <title>Qiskit &#8212; Qmiotools 0.1.5 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -18,7 +18,7 @@
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="qmiotools package" href="qmiotools.html" />
+    <link rel="next" title="qmiotools.integrations.qiskitqmio.QmioBackend" href="stubs/qmiotools.integrations.qiskitqmio.QmioBackend.html" />
     <link rel="prev" title="Qmiotools’s documentation" href="index.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
@@ -35,13 +35,13 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="qmiotools.html" title="qmiotools package"
+          <a href="stubs/qmiotools.integrations.qiskitqmio.QmioBackend.html" title="qmiotools.integrations.qiskitqmio.QmioBackend"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="index.html" title="Qmiotools’s documentation"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Qmiotools 0.1.5 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">qmiotools</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Qiskit</a></li> 
       </ul>
     </div>  
 
@@ -50,31 +50,28 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="qmiotools">
-<h1>qmiotools<a class="headerlink" href="#qmiotools" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="qmiotools.html">qmiotools package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="qmiotools.html#subpackages">Subpackages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="qmiotools.integrations.html">qmiotools.integrations package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="qmiotools.integrations.html#subpackages">Subpackages</a></li>
-<li class="toctree-l4"><a class="reference internal" href="qmiotools.integrations.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="qmiotools.integrations.html#module-qmiotools.integrations">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="qmiotools.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="qmiotools.data.html">qmiotools.data module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="qmiotools.exceptions.html">qmiotools.exceptions module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="qmiotools.version.html">qmiotools.version module</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="qmiotools.html#module-qmiotools">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</div>
+  <span class="target" id="module-qmiotools.integrations.qiskitqmio"></span><div class="section" id="qiskit">
+<h1>Qiskit<a class="headerlink" href="#qiskit" title="Permalink to this headline">¶</a></h1>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="stubs/qmiotools.integrations.qiskitqmio.QmioBackend.html#qmiotools.integrations.qiskitqmio.QmioBackend" title="qmiotools.integrations.qiskitqmio.QmioBackend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">QmioBackend</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Backend to execute Jobs in Qmio QPU.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="stubs/qmiotools.integrations.qiskitqmio.FakeQmio.html#qmiotools.integrations.qiskitqmio.FakeQmio" title="qmiotools.integrations.qiskitqmio.FakeQmio"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FakeQmio</span></code></a>([calibration_file, ...])</p></td>
+<td><p>Create a Fake backend for Qmio that uses the last calibrations and AerSimulator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="stubs/qmiotools.integrations.qiskitqmio.QmioJob.html#qmiotools.integrations.qiskitqmio.QmioJob" title="qmiotools.integrations.qiskitqmio.QmioJob"><code class="xref py py-obj docutils literal notranslate"><span class="pre">QmioJob</span></code></a>(*args, **kwargs)</p></td>
+<td><p>A class to return the results of a Job following the structure of <a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.providers.JobV1" title="(in Qiskit v1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">qiskit.providers.JobV1</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="stubs/qmiotools.integrations.qiskitqmio.FlattenCircuit.html#qmiotools.integrations.qiskitqmio.FlattenCircuit" title="qmiotools.integrations.qiskitqmio.FlattenCircuit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FlattenCircuit</span></code></a>(circ)</p></td>
+<td><p>Method to convert a Qiskit circuit with several ClassicalRegisters in a single ClassicalRegister</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 
 
@@ -94,8 +91,8 @@
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="qmiotools.html"
-                          title="next chapter">qmiotools package</a></p>
+    <p class="topless"><a href="stubs/qmiotools.integrations.qiskitqmio.QmioBackend.html"
+                          title="next chapter">qmiotools.integrations.qiskitqmio.QmioBackend</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -121,18 +118,18 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="qmiotools.html" title="qmiotools package"
+          <a href="stubs/qmiotools.integrations.qiskitqmio.QmioBackend.html" title="qmiotools.integrations.qiskitqmio.QmioBackend"
              >next</a> |</li>
         <li class="right" >
           <a href="index.html" title="Qmiotools’s documentation"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Qmiotools 0.1.5 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">qmiotools</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Qiskit</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2024, Andrés Gómez (CESGA).
-      Last updated on 2024/11/29.
+      Last updated on 2024/11/30.
     </div>
   </body>
 </html>

@@ -1,7 +1,0 @@
-qmiotools.data module
-=====================
-
-.. automodule:: qmiotools.data
-   :members:
-   :undoc-members:
-   :show-inheritance:
