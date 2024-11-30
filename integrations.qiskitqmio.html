@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; Qmiotools 0.1.5 documentation</title>
+    <title>Qiskit &#8212; Qmiotools 0.2.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -18,7 +18,7 @@
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="integrations.tkbackend.html" />
+    <link rel="next" title="QmioBackend" href="stubs/qmiotools.integrations.qiskitqmio.QmioBackend.html" />
     <link rel="prev" title="Qmiotools’s documentation" href="index.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
@@ -32,13 +32,16 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="integrations.tkbackend.html" title="&lt;no title&gt;"
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="stubs/qmiotools.integrations.qiskitqmio.QmioBackend.html" title="QmioBackend"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="index.html" title="Qmiotools’s documentation"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Qmiotools 0.1.5 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">&lt;no title&gt;</a></li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Qmiotools 0.2.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Qiskit</a></li> 
       </ul>
     </div>  
 
@@ -47,7 +50,33 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  
+  <span class="target" id="module-qmiotools.integrations.qiskitqmio"></span><div class="section" id="qiskit">
+<h1>Qiskit<a class="headerlink" href="#qiskit" title="Permalink to this headline">¶</a></h1>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="stubs/qmiotools.integrations.qiskitqmio.QmioBackend.html#qmiotools.integrations.qiskitqmio.QmioBackend" title="qmiotools.integrations.qiskitqmio.QmioBackend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">QmioBackend</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Backend to execute Jobs in Qmio QPU.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="stubs/qmiotools.integrations.qiskitqmio.QasmCircuit.html#qmiotools.integrations.qiskitqmio.QasmCircuit" title="qmiotools.integrations.qiskitqmio.QasmCircuit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">QasmCircuit</span></code></a>()</p></td>
+<td><p>A dataclass for storing basic data to return data of one execution for inputs in OpenQasm</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="stubs/qmiotools.integrations.qiskitqmio.FakeQmio.html#qmiotools.integrations.qiskitqmio.FakeQmio" title="qmiotools.integrations.qiskitqmio.FakeQmio"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FakeQmio</span></code></a>([calibration_file, ...])</p></td>
+<td><p>Create a Fake backend for Qmio that uses the last calibrations and AerSimulator.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="stubs/qmiotools.integrations.qiskitqmio.QmioJob.html#qmiotools.integrations.qiskitqmio.QmioJob" title="qmiotools.integrations.qiskitqmio.QmioJob"><code class="xref py py-obj docutils literal notranslate"><span class="pre">QmioJob</span></code></a>(*args, **kwargs)</p></td>
+<td><p>A class to return the results of a Job following the structure of <a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.providers.JobV1" title="(in Qiskit v1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">qiskit.providers.JobV1</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="stubs/qmiotools.integrations.qiskitqmio.FlattenCircuit.html#qmiotools.integrations.qiskitqmio.FlattenCircuit" title="qmiotools.integrations.qiskitqmio.FlattenCircuit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FlattenCircuit</span></code></a>(circ)</p></td>
+<td><p>Method to convert a Qiskit circuit with several ClassicalRegisters in a single ClassicalRegister</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+
 
             <div class="clearer"></div>
           </div>
@@ -65,8 +94,8 @@
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="integrations.tkbackend.html"
-                          title="next chapter">&lt;no title&gt;</a></p>
+    <p class="topless"><a href="stubs/qmiotools.integrations.qiskitqmio.QmioBackend.html"
+                          title="next chapter">QmioBackend</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -89,13 +118,16 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="integrations.tkbackend.html" title="&lt;no title&gt;"
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="stubs/qmiotools.integrations.qiskitqmio.QmioBackend.html" title="QmioBackend"
              >next</a> |</li>
         <li class="right" >
           <a href="index.html" title="Qmiotools’s documentation"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Qmiotools 0.1.5 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">&lt;no title&gt;</a></li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Qmiotools 0.2.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Qiskit</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

@@ -1,0 +1,26 @@
+﻿QmioBackend
+===========
+
+.. currentmodule:: qmiotools.integrations.qiskitqmio
+
+.. autoclass:: QmioBackend
+   :no-members:
+   :show-inheritance:
+
+
+  
+   .. rubric:: Attributes
+    
+   .. autoattribute:: max_circuits
+   .. autoattribute:: target
+  
+
+  
+  
+   .. rubric:: Methods
+    
+   .. automethod:: connect
+   .. automethod:: disconnect
+   .. automethod:: formats
+   .. automethod:: run
+  

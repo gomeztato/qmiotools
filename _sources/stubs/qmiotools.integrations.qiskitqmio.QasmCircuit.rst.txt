@@ -1,0 +1,20 @@
+﻿QasmCircuit
+===========
+
+.. currentmodule:: qmiotools.integrations.qiskitqmio
+
+.. autoclass:: QasmCircuit
+   :no-members:
+   :show-inheritance:
+
+
+  
+   .. rubric:: Attributes
+    
+   .. autoattribute:: circuit
+   .. autoattribute:: metadata
+   .. autoattribute:: name
+  
+
+  
+  

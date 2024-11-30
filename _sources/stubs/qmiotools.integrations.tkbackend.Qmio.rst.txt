@@ -1,0 +1,32 @@
+﻿Qmio
+====
+
+.. currentmodule:: qmiotools.integrations.tkbackend
+
+.. autoclass:: Qmio
+   :no-members:
+   :show-inheritance:
+
+
+  
+   .. rubric:: Attributes
+    
+   .. autoattribute:: backend_info
+   .. autoattribute:: rebase_pass
+   .. autoattribute:: required_predicates
+  
+
+  
+  
+   .. rubric:: Methods
+    
+   .. automethod:: circuit_status
+   .. automethod:: connect
+   .. automethod:: default_compilation_pass
+   .. automethod:: disconnect
+   .. automethod:: draw_graph
+   .. automethod:: process_circuit
+   .. automethod:: process_circuits
+   .. automethod:: run_circuit
+   .. automethod:: run_circuits
+  

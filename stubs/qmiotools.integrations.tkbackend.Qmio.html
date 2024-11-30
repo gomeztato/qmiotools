@@ -1,0 +1,251 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Qmio &#8212; Qmiotools 0.2.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="pyTket" href="../integrations.tkbackend.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../integrations.tkbackend.html" title="pyTket"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Qmiotools 0.2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../integrations.tkbackend.html" accesskey="U">pyTket</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Qmio</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="qmio">
+<h1>Qmio<a class="headerlink" href="#qmio" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="qmiotools.integrations.tkbackend.Qmio">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qmiotools.integrations.tkbackend.</span></span><span class="sig-name descname"><span class="pre">Qmio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><span class="pre">Any</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><span class="pre">Any</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qmiotools.integrations.tkbackend.Qmio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pytket.backends.Backend</span></code></p>
+<p>A pytket Backend wrapping</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>calibration_file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em> or </em><em>None</em>) – full path to a calibration file. Default <em>None</em> and loads the last calibration file from the directory indicated by environment QMIO_CALIBRATIONS</p></li>
+<li><p><strong>logging_level</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – flag to indicate the logging level. Better if use the <a class="reference external" href="https://docs.python.org/3/library/logging.html#module-logging" title="(in Python v3.13)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> package levels. Default <a class="reference external" href="https://docs.python.org/3/library/logging.html#logging.NOTSET" title="(in Python v3.13)"><code class="xref py py-data docutils literal notranslate"><span class="pre">logging.NOTSET</span></code></a></p></li>
+<li><p><strong>logging_filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Path to store the logging messages. Default <em>None</em>, i.e., output in stdout</p></li>
+</ul>
+</dd>
+</dl>
+<p>It uses <code class="xref py py-class docutils literal notranslate"><span class="pre">qmio.QmioRuntimeService</span></code> to submit circuits to the QPU. By default, the calibrations are read from the last JSON file in the directory set by environ variable QMIO_CALIBRATIONS, but accepts a direct filename to use instead of.</p>
+<p>Create a new instance of the class</p>
+<p class="rubric">Attributes</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qmiotools.integrations.tkbackend.Qmio.backend_info">
+<span class="sig-name descname"><span class="pre">backend_info</span></span><a class="headerlink" href="#qmiotools.integrations.tkbackend.Qmio.backend_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qmiotools.integrations.tkbackend.Qmio.rebase_pass">
+<span class="sig-name descname"><span class="pre">rebase_pass</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{pytket.circuit.OpType.Rz,</span> <span class="pre">pytket.circuit.OpType.Measure,</span> <span class="pre">pytket.circuit.OpType.X,</span> <span class="pre">pytket.circuit.OpType.SX,</span> <span class="pre">pytket.circuit.OpType.Barrier,</span> <span class="pre">pytket.circuit.OpType.ECR}</span></em><a class="headerlink" href="#qmiotools.integrations.tkbackend.Qmio.rebase_pass" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qmiotools.integrations.tkbackend.Qmio.required_predicates">
+<span class="sig-name descname"><span class="pre">required_predicates</span></span><a class="headerlink" href="#qmiotools.integrations.tkbackend.Qmio.required_predicates" title="Permalink to this definition">¶</a></dt>
+<dd><p>The minimum set of predicates that a circuit must satisfy before it can
+be successfully run on this backend.
+:return: Required predicates.
+:rtype: List[Predicate]</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="qmiotools.integrations.tkbackend.Qmio.circuit_status">
+<span class="sig-name descname"><span class="pre">circuit_status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pytket.backends.ResultHandle</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pytket.backends.CircuitStatus</span></span></span><a class="headerlink" href="#qmiotools.integrations.tkbackend.Qmio.circuit_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a CircuitStatus reporting the status of the circuit execution
+corresponding to the ResultHandle</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qmiotools.integrations.tkbackend.Qmio.connect">
+<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qmiotools.integrations.tkbackend.Qmio.connect" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method connect to the QPU. You do not need to connect, but you can if you want. If a connection exits, it is closed and the class is reconnected again</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qmiotools.integrations.tkbackend.Qmio.default_compilation_pass">
+<span class="sig-name descname"><span class="pre">default_compilation_pass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">optimisation_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.13)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><span class="pre">Dict</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">placement</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.13)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.13)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><span class="pre">pytket.placement.Placement</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><span class="pre">pytket.unit_id.Qubit</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pytket.unit_id.Node</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pytket.passes.BasePass</span></span></span><a class="headerlink" href="#qmiotools.integrations.tkbackend.Qmio.default_compilation_pass" title="Permalink to this definition">¶</a></dt>
+<dd><p>The basic compilation pass that produce a circuit with enough optimisation to run on Qmio.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>optimisation_level</strong> – <p>The level of optimisation to perform during compilation.</p>
+<ul>
+<li><p>Level 0 decompose boxes, solves the device constraints without optimising and convert to the supported gates.</p></li>
+<li><p>Level 1 additionally performs some light optimisations.</p></li>
+<li><p>Level 2 adds more intensive optimisations that can increase compilation time for large circuits.</p></li>
+</ul>
+<p>Any optimisation level includes the options of the previous level.
+Defaults to 1.</p>
+</p></li>
+<li><p><strong>options</strong> – </p></li>
+<li><p><strong>placement</strong> – Selected placement for the execution.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Compilation pass guaranteeing required predicates.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qmiotools.integrations.tkbackend.Qmio.disconnect">
+<span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qmiotools.integrations.tkbackend.Qmio.disconnect" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method closes the connection with the QPU and destroy the QPUBackend instance. It is recommended to do it before exit the program</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qmiotools.integrations.tkbackend.Qmio.draw_graph">
+<span class="sig-name descname"><span class="pre">draw_graph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qmiotools.integrations.tkbackend.Qmio.draw_graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Using matplotlib and networkx, plots the current connectivity of Qmio.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qmiotools.integrations.tkbackend.Qmio.process_circuit">
+<span class="sig-name descname"><span class="pre">process_circuit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">circuit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pytket.Circuit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_shots</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.13)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_check</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pytket.utils.results.KwargTypes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pytket.backends.ResultHandle</span></span></span><a class="headerlink" href="#qmiotools.integrations.tkbackend.Qmio.process_circuit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qmiotools.integrations.tkbackend.Qmio.process_circuits">
+<span class="sig-name descname"><span class="pre">process_circuits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">circuits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.13)"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><span class="pre">pytket.Circuit</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_shots</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.13)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_check</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pytket.utils.results.KwargTypes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><span class="pre">pytket.backends.ResultHandle</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#qmiotools.integrations.tkbackend.Qmio.process_circuits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qmiotools.integrations.tkbackend.Qmio.run_circuit">
+<span class="sig-name descname"><span class="pre">run_circuit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">circuit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pytket.Circuit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_shots</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.13)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_check</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repetition_period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.13)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pytket.utils.results.KwargTypes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pytket.backends.backendresult.BackendResult</span></span></span><a class="headerlink" href="#qmiotools.integrations.tkbackend.Qmio.run_circuit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Submits a circuit to the backend and returns results</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>circuit</strong> – Circuit to be executed</p></li>
+<li><p><strong>n_shots</strong> – Number of shots. Default: 8192</p></li>
+<li><p><strong>valid_check</strong> – Flag to check if the circuit is valid before run</p></li>
+<li><p><strong>binary</strong> – Flag to ask for raw binary. Default False, returning the counts</p></li>
+<li><p><strong>repetition_period</strong> – Time between two executions of the circuit.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The results of the execution</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>QPUException. If the execution in the QPU fails</strong><strong>, </strong><strong>including a description of the exception raised by the QPU</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qmiotools.integrations.tkbackend.Qmio.run_circuits">
+<span class="sig-name descname"><span class="pre">run_circuits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">circuits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.13)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><span class="pre">pytket.Circuit</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_shots</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.13)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.13)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.13)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_check</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repetition_period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.13)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pytket.utils.results.KwargTypes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><span class="pre">pytket.backends.backendresult.BackendResult</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#qmiotools.integrations.tkbackend.Qmio.run_circuits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Submits circuits to the backend and returns results</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>circuits</strong> – Sequence of Circuits to be executed</p></li>
+<li><p><strong>n_shots</strong> – Passed on to <code class="xref py py-meth docutils literal notranslate"><span class="pre">Backend.process_circuits()</span></code></p></li>
+<li><p><strong>valid_check</strong> – Passed on to <code class="xref py py-meth docutils literal notranslate"><span class="pre">Backend.process_circuits()</span></code></p></li>
+<li><p><strong>binary</strong> – Flag to ask for raw binary. Default False, returning the counts</p></li>
+<li><p><strong>repetition_period</strong> – Time between two executions of the circuit.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of results</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p>QmioException</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo_Qmio_v5-azul-300x80.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../integrations.tkbackend.html"
+                          title="previous chapter">pyTket</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../integrations.tkbackend.html" title="pyTket"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Qmiotools 0.2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../integrations.tkbackend.html" >pyTket</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Qmio</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, Andrés Gómez (CESGA).
+      Last updated on 2024/11/30.
+    </div>
+  </body>
+</html>

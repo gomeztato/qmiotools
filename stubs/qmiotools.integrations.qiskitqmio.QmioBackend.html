@@ -1,0 +1,251 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QmioBackend &#8212; Qmiotools 0.2.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="QasmCircuit" href="qmiotools.integrations.qiskitqmio.QasmCircuit.html" />
+    <link rel="prev" title="Qiskit" href="../integrations.qiskitqmio.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="qmiotools.integrations.qiskitqmio.QasmCircuit.html" title="QasmCircuit"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../integrations.qiskitqmio.html" title="Qiskit"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Qmiotools 0.2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../integrations.qiskitqmio.html" accesskey="U">Qiskit</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">QmioBackend</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="qmiobackend">
+<h1>QmioBackend<a class="headerlink" href="#qmiobackend" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="qmiotools.integrations.qiskitqmio.QmioBackend">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qmiotools.integrations.qiskitqmio.</span></span><span class="sig-name descname"><span class="pre">QmioBackend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><span class="pre">Any</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><span class="pre">Any</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qmiotools.integrations.qiskitqmio.QmioBackend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.providers.BackendV2" title="(in Qiskit v1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">qiskit.providers.BackendV2</span></code></a></p>
+<p>Backend to execute Jobs in Qmio QPU.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>calibration_file</strong> (<em>Str</em><em> or </em><em>None</em>) – full path to a calibration file. Default <em>None</em> and loads the last calibration file from the directory indicated by environment QMIO_CALIBRATIONS</p></li>
+<li><p><strong>logging_level</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – flag to indicate the logging level. Better if use the <a class="reference external" href="https://docs.python.org/3/library/logging.html#module-logging" title="(in Python v3.13)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> package levels. Default <a class="reference external" href="https://docs.python.org/3/library/logging.html#logging.NOTSET" title="(in Python v3.13)"><code class="xref py py-data docutils literal notranslate"><span class="pre">logging.NOTSET</span></code></a></p></li>
+<li><p><strong>logging_filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Path to store the logging messages. Default <em>None</em>, i.e., output in stdout</p></li>
+<li><p><strong>tunnel_time_limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – time limit user specified for stablish interactive tunnels (for example, “00:15:00” indicates a limit of 15 minutes)</p></li>
+<li><p><strong>reservation_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – reservation name user specified</p></li>
+<li><p><strong>kwargs</strong> – Other parameters to pass to Qiskit <a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.providers.BackendV2" title="(in Qiskit v1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">qiskit.providers.BackendV2</span></code></a> class</p></li>
+</ul>
+</dd>
+</dl>
+<p>It uses <code class="xref py py-class docutils literal notranslate"><span class="pre">qmio.QmioRuntimeService</span></code> to submit circuits to the QPU. By default, the calibrations are read from the last JSON file in the directory set by environ variable QMIO_CALIBRATIONS, but accepts a direct filename to use instead of.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>The execution using the method run is synchronous.</p>
+</div>
+<p>To create a new backend use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">backend</span><span class="o">=</span><span class="n">QmioBackend</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>It will print the file where the calibration were read in. If you want to use a specific calibrations file, use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">backend</span><span class="o">=</span><span class="n">QmioBackend</span><span class="p">(</span><span class="o">&lt;</span><span class="n">file</span> <span class="n">name</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where &lt;file name&gt; is the path to the calibrations file that must be used. If the file is not found, it raises a exception.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qiskit.circuit</span> <span class="kn">import</span> <span class="n">QuantumCircuit</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">transpile</span>
+<span class="kn">from</span> <span class="nn">qmiotools.integrations.qiskitqmio</span> <span class="kn">import</span> <span class="n">QmioBackend</span>
+
+<span class="n">backend</span><span class="o">=</span><span class="n">QmioBackend</span><span class="p">()</span> <span class="c1"># loads the last calibration file from the directory $QMIO_CALIBRARTIONS</span>
+
+<span class="c1"># Creates a circuit qwith 2 qubits</span>
+<span class="n">c</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">measure_all</span><span class="p">()</span>
+
+<span class="c1">#Transpile the circuit using the optimization_level equal to 2</span>
+<span class="n">c</span><span class="o">=</span><span class="n">transpile</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">backend</span><span class="p">,</span><span class="n">optimization_level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1">#Execute the circuit with 1000 shots. Must be executed from a node with a QPU.</span>
+<span class="n">job</span><span class="o">=</span><span class="n">backend</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">shots</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1">#Return the results</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="o">.</span><span class="n">get_counts</span><span class="p">())</span>
+</pre></div>
+</div>
+<p class="rubric">Attributes</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qmiotools.integrations.qiskitqmio.QmioBackend.max_circuits">
+<span class="sig-name descname"><span class="pre">max_circuits</span></span><a class="headerlink" href="#qmiotools.integrations.qiskitqmio.QmioBackend.max_circuits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="qmiotools.integrations.qiskitqmio.QmioBackend.target">
+<span class="sig-name descname"><span class="pre">target</span></span><a class="headerlink" href="#qmiotools.integrations.qiskitqmio.QmioBackend.target" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="qmiotools.integrations.qiskitqmio.QmioBackend.connect">
+<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qmiotools.integrations.qiskitqmio.QmioBackend.connect" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method connect to the QPU. You do not need to connect, but you can if you want. If a connection exits, it is closed and the class is reconnected again</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qmiotools.integrations.qiskitqmio.QmioBackend.disconnect">
+<span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qmiotools.integrations.qiskitqmio.QmioBackend.disconnect" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method closes the connection with the QPU and destroy the QPUBackend instance. It is recommended to do it before exit the program</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qmiotools.integrations.qiskitqmio.QmioBackend.formats">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">formats</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qmiotools.integrations.qiskitqmio.QmioBackend.formats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the possible output formats supported by QMIO.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qmiotools.integrations.qiskitqmio.QmioBackend.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.13)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.QuantumCircuit" title="(in Qiskit v1.3)"><span class="pre">qiskit.circuit.QuantumCircuit</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.pulse.Schedule" title="(in Qiskit v1.3)"><span class="pre">qiskit.pulse.Schedule</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.pulse.ScheduleBlock" title="(in Qiskit v1.3)"><span class="pre">qiskit.pulse.ScheduleBlock</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.13)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.QuantumCircuit" title="(in Qiskit v1.3)"><span class="pre">qiskit.circuit.QuantumCircuit</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.pulse.Schedule" title="(in Qiskit v1.3)"><span class="pre">qiskit.pulse.Schedule</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="qmiotools.integrations.qiskitqmio.QmioJob.html#qmiotools.integrations.qiskitqmio.QmioJob" title="qmiotools.integrations.qiskitqmio.qmiojob.QmioJob"><span class="pre">qmiotools.integrations.qiskitqmio.qmiojob.QmioJob</span></a></span></span><a class="headerlink" href="#qmiotools.integrations.qiskitqmio.QmioBackend.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run on QMIO QPU. This method is Synchronous, so it will wait for the results from the QPU</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>run_input</strong> (<em>QuantumCircuit</em><em> or </em><em>Schedule</em><em> or </em><em>Str - a QASM string -</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a>) – An
+individual or a list of <a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.QuantumCircuit" title="(in Qiskit v1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantumCircuit</span></code></a>,
+or <a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.pulse.Schedule" title="(in Qiskit v1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Schedule</span></code></a> or a string with a QASM 2.0/3.0 objects to
+run on the backend.</p></li>
+<li><p><strong>options</strong> – <p>Any kwarg options to pass to the backend for running the
+config. If a key is also present in the options
+attribute/object then the expectation is that the value
+specified will be used instead of what’s set in the options
+object. Default options can be obtained with <code class="xref py py-meth docutils literal notranslate"><span class="pre">_default_options()</span></code></p>
+<p>Some specific options for Qmio are:</p>
+<ul>
+<li><p>memory: if format is binary_counts (the defualt format), returns also all the sequence.</p></li>
+<li><p>repetition_period, slot of time between shot starts (default, <strong>None</strong>. Uses the default that it is calibrated)</p></li>
+<li><p>res_format, format for the output (default, ‘binary_count’. You can get the possible formats with <a class="reference internal" href="#qmiotools.integrations.qiskitqmio.QmioBackend.formats" title="qmiotools.integrations.qiskitqmio.QmioBackend.formats"><code class="xref py py-meth docutils literal notranslate"><span class="pre">formats()</span></code></a>)</p></li>
+<li><p>output_qasm3, if convert the QuantumCircuit to OpenQASM 3.0 instead of OpenQASM 2.0 - default-)</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>When memory option is specified for binary_counts, take into account that the process of converting from raw data to shots is done by this class and not by Qmio QPU.
+The split is done using values less than 0 or grand than 0.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The job object for the run</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="qmiotools.integrations.qiskitqmio.QmioJob.html#qmiotools.integrations.qiskitqmio.QmioJob" title="qmiotools.integrations.qiskitqmio.QmioJob"><code class="xref py py-class docutils literal notranslate"><span class="pre">QmioJob</span></code></a></p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>QPUException</strong> – if there is one error in the QPU</p></li>
+<li><p><strong>QmioException</strong> – if there are errors in the input parameters.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo_Qmio_v5-azul-300x80.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../integrations.qiskitqmio.html"
+                          title="previous chapter">Qiskit</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="qmiotools.integrations.qiskitqmio.QasmCircuit.html"
+                          title="next chapter">QasmCircuit</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="qmiotools.integrations.qiskitqmio.QasmCircuit.html" title="QasmCircuit"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../integrations.qiskitqmio.html" title="Qiskit"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Qmiotools 0.2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../integrations.qiskitqmio.html" >Qiskit</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">QmioBackend</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, Andrés Gómez (CESGA).
+      Last updated on 2024/11/30.
+    </div>
+  </body>
+</html>

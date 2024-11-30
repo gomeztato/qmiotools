@@ -1,0 +1,6 @@
+﻿qmiotools.integrations.qiskitqmio.FakeQmio
+==========================================
+
+.. currentmodule:: qmiotools.integrations.qiskitqmio
+
+.. autofunction:: FakeQmio

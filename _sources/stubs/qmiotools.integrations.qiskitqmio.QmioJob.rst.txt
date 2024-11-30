@@ -1,0 +1,21 @@
+﻿QmioJob
+=======
+
+.. currentmodule:: qmiotools.integrations.qiskitqmio
+
+.. autoclass:: QmioJob
+   :no-members:
+   :show-inheritance:
+
+
+  
+
+  
+  
+   .. rubric:: Methods
+    
+   .. automethod:: cancel
+   .. automethod:: result
+   .. automethod:: status
+   .. automethod:: submit
+  
