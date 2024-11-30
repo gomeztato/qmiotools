@@ -1,6 +1,0 @@
-﻿qmiotools.integrations.qiskitqmio.FlattenCircuit
-================================================
-
-.. currentmodule:: qmiotools.integrations.qiskitqmio
-
-.. autofunction:: FlattenCircuit

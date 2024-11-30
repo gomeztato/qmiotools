@@ -10,14 +10,20 @@ Qmiotools's documentation
 Interfaces with programming languages
 ======================================================
 .. toctree::
-   :maxdepth: 4
-   :caption: Contents:
+   :maxdepth: 1
 
 
    integrations.qiskitqmio
    integrations.tkbackend
 
-#.. autosummary:: 
+======================================================
+Utils
+======================================================
+.. toctree::
+   :maxdepth: 1
+
+   integrations.utils
+
 
 Indices and tables
 ==================
