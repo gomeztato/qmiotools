@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>QmioBackend &#8212; Qmiotools 0.2.0 documentation</title>
+    <title>QmioBackend &#8212; Qmiotools 0.2.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="../integrations.qiskitqmio.html" title="Qiskit"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">Qmiotools 0.2.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Qmiotools 0.2.1 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../integrations.qiskitqmio.html" accesskey="U">Qiskit</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">QmioBackend</a></li> 
       </ul>
@@ -56,7 +56,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="qmiotools.integrations.qiskitqmio.QmioBackend">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qmiotools.integrations.qiskitqmio.</span></span><span class="sig-name descname"><span class="pre">QmioBackend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><span class="pre">Any</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><span class="pre">Any</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qmiotools.integrations.qiskitqmio.QmioBackend" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.providers.BackendV2" title="(in Qiskit v1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">qiskit.providers.BackendV2</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.providers.BackendV2" title="(in Qiskit v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">qiskit.providers.BackendV2</span></code></a></p>
 <p>Backend to execute Jobs in Qmio QPU.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -66,7 +66,7 @@
 <li><p><strong>logging_filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Path to store the logging messages. Default <em>None</em>, i.e., output in stdout</p></li>
 <li><p><strong>tunnel_time_limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – time limit user specified for stablish interactive tunnels (for example, “00:15:00” indicates a limit of 15 minutes)</p></li>
 <li><p><strong>reservation_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – reservation name user specified</p></li>
-<li><p><strong>kwargs</strong> – Other parameters to pass to Qiskit <a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.providers.BackendV2" title="(in Qiskit v1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">qiskit.providers.BackendV2</span></code></a> class</p></li>
+<li><p><strong>kwargs</strong> – Other parameters to pass to Qiskit <a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.providers.BackendV2" title="(in Qiskit v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">qiskit.providers.BackendV2</span></code></a> class</p></li>
 </ul>
 </dd>
 </dl>
@@ -139,14 +139,14 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="qmiotools.integrations.qiskitqmio.QmioBackend.run">
-<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.13)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.QuantumCircuit" title="(in Qiskit v1.3)"><span class="pre">qiskit.circuit.QuantumCircuit</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.pulse.Schedule" title="(in Qiskit v1.3)"><span class="pre">qiskit.pulse.Schedule</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.pulse.ScheduleBlock" title="(in Qiskit v1.3)"><span class="pre">qiskit.pulse.ScheduleBlock</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.13)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.QuantumCircuit" title="(in Qiskit v1.3)"><span class="pre">qiskit.circuit.QuantumCircuit</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.pulse.Schedule" title="(in Qiskit v1.3)"><span class="pre">qiskit.pulse.Schedule</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="qmiotools.integrations.qiskitqmio.QmioJob.html#qmiotools.integrations.qiskitqmio.QmioJob" title="qmiotools.integrations.qiskitqmio.qmiojob.QmioJob"><span class="pre">qmiotools.integrations.qiskitqmio.qmiojob.QmioJob</span></a></span></span><a class="headerlink" href="#qmiotools.integrations.qiskitqmio.QmioBackend.run" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.13)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.QuantumCircuit" title="(in Qiskit v2.0)"><span class="pre">qiskit.circuit.QuantumCircuit</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">qiskit.pulse.Schedule</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">qiskit.pulse.ScheduleBlock</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.13)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.QuantumCircuit" title="(in Qiskit v2.0)"><span class="pre">qiskit.circuit.QuantumCircuit</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">qiskit.pulse.Schedule</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="qmiotools.integrations.qiskitqmio.QmioJob.html#qmiotools.integrations.qiskitqmio.QmioJob" title="qmiotools.integrations.qiskitqmio.qmiojob.QmioJob"><span class="pre">qmiotools.integrations.qiskitqmio.qmiojob.QmioJob</span></a></span></span><a class="headerlink" href="#qmiotools.integrations.qiskitqmio.QmioBackend.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run on QMIO QPU. This method is Synchronous, so it will wait for the results from the QPU</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>run_input</strong> (<em>QuantumCircuit</em><em> or </em><em>Schedule</em><em> or </em><em>Str - a QASM string -</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a>) – An
-individual or a list of <a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.QuantumCircuit" title="(in Qiskit v1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantumCircuit</span></code></a>,
-or <a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.pulse.Schedule" title="(in Qiskit v1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Schedule</span></code></a> or a string with a QASM 2.0/3.0 objects to
+individual or a list of <a class="reference external" href="https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.QuantumCircuit" title="(in Qiskit v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantumCircuit</span></code></a>,
+or <code class="xref py py-class docutils literal notranslate"><span class="pre">Schedule</span></code> or a string with a QASM 2.0/3.0 objects to
 run on the backend.</p></li>
 <li><p><strong>options</strong> – <p>Any kwarg options to pass to the backend for running the
 config. If a key is also present in the options
@@ -238,14 +238,14 @@ The split is done using values less than 0 or grand than 0.</p>
         <li class="right" >
           <a href="../integrations.qiskitqmio.html" title="Qiskit"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">Qmiotools 0.2.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Qmiotools 0.2.1 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../integrations.qiskitqmio.html" >Qiskit</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">QmioBackend</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2024, Andrés Gómez (CESGA).
-      Last updated on 2024/11/30.
+      Last updated on 2025/05/27.
     </div>
   </body>
 </html>
