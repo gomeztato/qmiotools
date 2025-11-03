@@ -12,7 +12,7 @@ from qiskit_aer import AerSimulator
 from qiskit_aer.noise import NoiseModel
 from .qmiobackend import QmioBackend
 
-def FakeQmio(calibration_file: str=None, thermal_relaxation: bool = True, temperature: float = 0 , gate_error: bool=False, readout_error: bool=False, logging_level: int=logging.NOTSET, logging_filename: str=None,  **kwargs) -> AerSimulator:
+def FakeQmio(calibration_file: str=None, thermal_relaxation: bool = True, temperature: float = 0 , gate_error: bool=False, readout_error: bool=False, logging_level: int=logging.NOTSET, logging_filename: str=None, qmio_partition: str="full", **kwargs) -> AerSimulator:
     r"""
     
     Create a Fake backend for Qmio that uses the last calibrations and AerSimulator. 
@@ -25,6 +25,7 @@ def FakeQmio(calibration_file: str=None, thermal_relaxation: bool = True, temper
         readout_error (bool): Flag to include (True) or not (False. Default) the readout error from the calibrations file.
         logging_level (int): flag to indicate the logging level. Better if use the logging package levels. Default logging.NOTSET
         logging_filename (str):  Path to store the logging messages. Default *None*, i.e., output in stdout
+        qmio_partition (str): qmio partition name on which you want to execute the code. Default 'full' which represents the entire decive. The rest of partitions are called 'isle1' 'isle2' and 'isle3'.
         **kwargs: other parameters to pass directly to :class:`qiskit_aer.AerSimulator`
 
     Returns:
@@ -50,7 +51,7 @@ def FakeQmio(calibration_file: str=None, thermal_relaxation: bool = True, temper
     logger.info("Logging FakeQmio started:")
     handler.flush()
     logger.info("Reading QmioBackend data")
-    qmio=QmioBackend(calibration_file,logging_level=logging_level, logging_filename=logging_filename)
+    qmio=QmioBackend(calibration_file,logging_level=logging_level, logging_filename=logging_filename, qmio_partition=qmio_partition)
     noise_model = NoiseModel.from_backend(
         qmio, thermal_relaxation=thermal_relaxation,
         temperature=temperature,

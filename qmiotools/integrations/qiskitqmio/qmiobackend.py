@@ -1,5 +1,6 @@
 from qiskit.providers import QubitProperties, BackendV2, Options, Job
 from qiskit.providers import JobStatus, JobV1  
+
 #Removed for integration with Qiskint 2.0
 #from qiskit.providers.models.backendstatus import BackendStatus
 
@@ -9,6 +10,7 @@ from qiskit.circuit import Delay
 from qiskit.transpiler import Target, InstructionProperties
 from qiskit.circuit.library import UGate, CXGate, Measure
 from qiskit.circuit import Parameter, QuantumCircuit, ClassicalRegister
+from qiskit.converters import circuit_to_dag
 try:
     from qiskit.pulse import Schedule, ScheduleBlock
     from .opexporter import OPExporter
@@ -55,9 +57,6 @@ from qmio import QmioRuntimeService
 from qmio.backends import QPUBackend
 
 
-QBIT_MAP2=QBIT_MAP.copy()
-QBIT_MAP=[i for i in range(32)]
-
 import logging
 
 
@@ -79,6 +78,8 @@ class QmioBackend(BackendV2):
             tunnel_time_limit (str): time limit user specified for stablish interactive tunnels (for example, "00:15:00" indicates a limit of 15 minutes)
             
             reservation_name (str): reservation name user specified
+
+            qmio_partition (str): qmio partition name on which you want to execute the code. Default 'full' which represents the entire decive. The rest of partitions are called 'isle1' 'isle2' and 'isle3'.
             
             kwargs: Other parameters to pass to Qiskit :py:class:`qiskit.providers.BackendV2` class
             
@@ -129,7 +130,8 @@ class QmioBackend(BackendV2):
 
     def __init__(self, calibration_file: str=None, logging_level: int=logging.NOTSET, logging_filename: str=None,
                  tunnel_time_limit: str=None,
-                 reservation_name: str=None, **kwargs):
+                 reservation_name: str=None,
+                 qmio_partition: str="full",**kwargs):
         
         self._provider=None
         self._name="Qmio"
@@ -141,6 +143,9 @@ class QmioBackend(BackendV2):
         self._exporter=None
         self._reservation_name=reservation_name
         self._tunnel_time_limit=tunnel_time_limit
+        self._qmio_partition=qmio_partition
+
+
         #
         # Logging activate
         #
@@ -180,22 +185,80 @@ class QmioBackend(BackendV2):
         self._calibration_file=calibrations.get_filename()
         properties=[]
         qubits=calibrations.get_qubits()
+        qubit_conections=calibrations.get_mapping()
+        
+        
+        ########
+
+        isle1_qubits=[13,19,20,21,22,23,29,30,31]
+        isle1_conections=[12,19,20,21,22,23,31,32]
+
+        isle2_qubits=[6,10,11,12,14]
+        isle2_conections=[6,10,11,13]
+
+        isle3_qubits=[8,15,16,25,26]
+        isle3_conections=[15,16,26,27]
+        
+        ########
+        
+        if self._qmio_partition=="full":
+            log_to_phys=QBIT_MAP.copy()
+            isle=[i for i in range(len(log_to_phys))]
+            qubit_keys=list(qubits.keys())
+            keys_pairs=qubit_conections
+
+        elif self._qmio_partition=="isle1":
+            isle=isle1_qubits
+            log_to_phys=[]
+            qubit_keys=[]
+            for i in isle1_qubits:
+                log_to_phys.append(QBIT_MAP[i])
+                qubit_keys.append(list(qubits.keys())[i])
+            keys_pairs=[]
+            for i in isle1_conections:
+                keys_pairs.append(qubit_conections[i])
+            
+
+        elif self._qmio_partition=="isle2":
+            isle=isle2_qubits
+            log_to_phys=[]
+            qubit_keys=[]
+            for i in isle2_qubits:
+                log_to_phys.append(QBIT_MAP[i])
+                qubit_keys.append(list(qubits.keys())[i])
+            keys_pairs=[]
+            for i in isle2_conections:
+                keys_pairs.append(qubit_conections[i])
+        elif self._qmio_partition=="isle3":
+            isle=isle3_qubits
+            log_to_phys=[]
+            qubit_keys=[]
+            for i in isle3_qubits:
+                log_to_phys.append(QBIT_MAP[i])
+                qubit_keys.append(list(qubits.keys())[i])
+            keys_pairs=[]
+            for i in isle3_conections:
+                keys_pairs.append(qubit_conections[i])
+        else:
+            raise QmioException("Specify a valid Qmio partition: full, isle1, isle2 or isle3")         
+                
+        self._log_to_phys_mapping=log_to_phys
+        self._isle_to_log_mapping=qubit_keys
+
+        num_qubits=len(log_to_phys)
+        QBIT_LIST=[i for i in range(num_qubits)]
         
         #
         # Load Qubits Properties
         #
-        
-        
-        keys=list(qubits.keys())
-        num_qubits=len(keys)
-        
+
         j=0
-        for i in range(max(QBIT_MAP)+1):
-            if i in QBIT_MAP:
-                key=keys[j]
+        for i in range(max(QBIT_LIST)+1):
+            if i in QBIT_LIST:
+                key=qubit_keys[j]
                 properties.append(QubitProperties(t1=qubits[key]["T1 (s)"],t2=qubits[key]["T2 (s)"],frequency=qubits[key]["Drive Frequency (Hz)"]))
                 j=j+1
-                self._logger.debug("Qubit:%s, T1=%.9f, T2=%.9f, Drive Freq:%f"%(key,qubits[key]["T1 (s)"],qubits[key]["T2 (s)"],qubits[key]["Drive Frequency (Hz)"]))
+                self._logger.debug("Qubit:%s, T1=%.9f, T2=%.9f, Drive Freq:%f"%(str((i,)),qubits[key]["T1 (s)"],qubits[key]["T2 (s)"],qubits[key]["Drive Frequency (Hz)"]))
             else:
                 properties.append(None)
                 
@@ -211,37 +274,41 @@ class QmioBackend(BackendV2):
         
         errors=calibrations.get_1Q_errors()
         durations=calibrations.get_1Q_durations()
-       
+
         sx_inst=OrderedDict()
         x_inst=OrderedDict()
-        for i in errors:
-            sx_inst[(QBIT_MAP[i[0]],)]=InstructionProperties(duration=durations[i], error=errors[i])
-            self._logger.debug("Added SX[%d]- Duration %.10fs - error %f"%(QBIT_MAP[i[0]],durations[i],errors[i]))
-        for i in errors:
-            x_inst[(QBIT_MAP[i[0]],)]=InstructionProperties(duration=durations[i]*2, error=errors[i])
-            self._logger.debug("Added X[%d]- Duration %.10fs - error %f"%(QBIT_MAP[i[0]],durations[i]*2,errors[i]))
+
+        for i in range(num_qubits):
+            sx_inst[(i,)]=InstructionProperties(duration=durations[(int(qubit_keys[i][2:-1]),)], error=errors[(int(qubit_keys[i][2:-1]),)])
+            self._logger.debug("Added SX[%d]- Duration %.10fs - error %f"%(i,durations[(int(qubit_keys[i][2:-1]),)],errors[(int(qubit_keys[i][2:-1]),)]))
+        for i in range(num_qubits):
+            x_inst[(i,)]=InstructionProperties(duration=durations[(int(qubit_keys[i][2:-1]),)]*2, error=errors[(int(qubit_keys[i][2:-1]),)])
+            self._logger.debug("Added X[%d]- Duration %.10fs - error %f"%(i,durations[(int(qubit_keys[i][2:-1]),)]*2,errors[(int(qubit_keys[i][2:-1]),)]))
         
         target.add_instruction(SXGate(), sx_inst)
         target.add_instruction(XGate(), x_inst)
         
         rz_inst=OrderedDict()
-        for i in durations:
-            rz_inst[(QBIT_MAP[i[0]],)]=InstructionProperties(duration=0.0)
-            self._logger.debug("Added rz[%d]- Duration %.10fs - error %f"%(QBIT_MAP[i[0]],0.0,0.0))
+        for i in range(num_qubits):
+            rz_inst[(i,)]=InstructionProperties(duration=0.0)
+            self._logger.debug("Added rz[%d]- Duration %.10fs - error %f"%(i,0.0,0.0))
                 
         target.add_instruction(RZGate(theta), rz_inst)
         
         #q2_inst=calibrations.get_2Q_errors()
         #target.add_instruction(ECRGate(), q2_inst)   
+
+        
         errors=calibrations.get_2Q_errors()
         durations=calibrations.get_2Q_durations()
         
         #self._logger.debug(durations)
         
         ecr_inst=OrderedDict()
-        for i in errors:
-            self._logger.debug("Added ecr_inst[(%d,%d) - duration %.10fs - error %f]"%(QBIT_MAP[i[0]],QBIT_MAP[i[1]],durations[i],errors[i]))
-            ecr_inst[(QBIT_MAP[i[0]],QBIT_MAP[i[1]])]=InstructionProperties(duration=durations[i], error=errors[i])
+        for i in range(len(keys_pairs)):
+            logical_pair=(isle.index(keys_pairs[i][0]),isle.index(keys_pairs[i][1])) 
+            ecr_inst[logical_pair]=InstructionProperties(duration=durations[keys_pairs[i]], error=errors[keys_pairs[i]])
+            self._logger.debug("Added ecr_inst[(%s) - duration %.10fs - error %f]"%(str(logical_pair),durations[keys_pairs[i]],errors[keys_pairs[i]]))
             
         
         target.add_instruction(ECRGate(), ecr_inst)
@@ -253,16 +320,16 @@ class QmioBackend(BackendV2):
         durations=calibrations.get_measuring_durations()
 
         #for i in qubits:
-        j=0
-        for i in errors:
-            measures[(QBIT_MAP[i[0]],)]=InstructionProperties(duration=durations[i], error=errors[i])
-            self._logger.debug("measures[%d] - duration %.10fs - error %f"%(QBIT_MAP[i[0]],durations[i],errors[i]))
+        
+        for i in range(num_qubits):
+            measures[(i,)]=InstructionProperties(duration=durations[(int(qubit_keys[i][2:-1]),)], error=errors[(int(qubit_keys[i][2:-1]),)])
+            self._logger.debug("measures[%d] - duration %.10fs - error %f"%(i,durations[(int(qubit_keys[i][2:-1]),)],errors[(int(qubit_keys[i][2:-1]),)]))
             
         target.add_instruction(Measure(),measures)
         
         delays=OrderedDict()
-        for i in qubits:
-            delays[(QBIT_MAP[int(i[2:-1])],)]=None
+        for i in range(num_qubits):
+            delays[(i,)]=None
         
         target.add_instruction(Delay(Parameter("t")),delays)
                                
@@ -366,11 +433,11 @@ class QmioBackend(BackendV2):
         if "qubit[" in qasm:
             c=transpile(c,self,optimization_level=0)
             qasm=qasm3.dumps(c, includes=[], basis_gates=basis_gates).replace("\n","")
-        
+        mapping=self._log_to_phys_mapping
         for i in range(self.num_qubits-1,-1,-1):
-            qasm=qasm.replace("$%d;"%i,"$%d;"%QBIT_MAP2[i])
-            qasm=qasm.replace("$%d,"%i,"$%d,"%QBIT_MAP2[i])
-            qasm=qasm.replace("$%d "%i,"$%d "%QBIT_MAP2[i])
+            qasm=qasm.replace("$%d;"%i,"$%d;"%mapping[i])
+            qasm=qasm.replace("$%d,"%i,"$%d,"%mapping[i])
+            qasm=qasm.replace("$%d "%i,"$%d "%mapping[i])
         
         #self._logger.info("Replacing SC gate by RX(pi/2) as a temporal fix")
         #qasm=qasm.replace("SX ","rx(pi/2) ").replace("sx ","rx(pi/2) ")
@@ -378,12 +445,29 @@ class QmioBackend(BackendV2):
         return qasm
             
     def _to_qasm2(self,c):
+
+        all_qubits=c.qubits
+        cdag=circuit_to_dag(c)
+        active_qubits = [qubit for qubit in all_qubits if qubit not in cdag.idle_wires()]
+        mapping=self._isle_to_log_mapping
+
         self._logger.debug("Converting to OPENQASM 2.0")
         qasm=qasm2.dumps(c)
         self._logger.debug("Circuit to transform:\n%s"%qasm )
         qasm=re.sub("\\ngate rzx.*\\n","\\n",qasm)
         #qasm=re.sub("\\nopaque delay.*","",qasm)
         qasm=re.sub("\\ngate ecr.*\\n","\\ngate ecr q0, q1 {};\\n",qasm)
+
+        qasm = re.sub(r'\bq\[%s\]'%(str(len(all_qubits))), 'TEMP_Q%s'%(str(len(all_qubits))), qasm)
+        for i in range(len(active_qubits)):
+            idx=active_qubits[i]._index
+            qasm = re.sub(r'\bq\[%s\]'%(str(idx)), 'TEMP_Q%s'%(str(idx)), qasm)
+
+        qasm = re.sub(r'TEMP_Q%s'%(str(len(all_qubits))), 'q[%s]'%(str(len(QBIT_MAP))), qasm)
+        for i in range(len(active_qubits)):
+            idx=active_qubits[i]._index
+            qasm = re.sub(r'TEMP_Q%s'%(str(idx)), mapping[idx], qasm)
+
         qasm=qasm.replace("\n","")       
 
         if re.search("delay.*", qasm):
